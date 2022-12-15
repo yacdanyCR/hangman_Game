@@ -1,4 +1,16 @@
 .hanged__Section .container {
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50vh;
+}
+
+.input__Section {
+    display: flex;
+}
+
+.input__Section>h1 {
+    margin-left: 2rem;
+    text-decoration: underline;
 }

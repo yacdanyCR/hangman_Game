@@ -1,10 +1,10 @@
-const getRandomWordl = () => {
+const getRandomWordl = async () => {
     try {
-        return fetch("https://random-word-api.herokuapp.com/word")
+        return await fetch("https://random-words-api.vercel.app/word/")
             .then((response) => {
                 return response.json();
             }).then((json) => {
-                return json[0].toUpperCase();
+                return json[0].word.toUpperCase();
             })
     } catch (error) {
         throw error
