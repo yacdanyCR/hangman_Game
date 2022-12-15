@@ -7,6 +7,7 @@ import { navBarComponent } from "./components/NavBarComponent/NavBarComponent.js
 import { messageAlert, optionsAccerted } from "./services/gameServices.js";
 
 let randomWord = [];
+let randomWordAux = "";
 let oportunities = 6;
 const accertedLetters = [];
 
@@ -20,6 +21,7 @@ $keyboard__Section.append(keyBoardComponent());
 $input__Section.append(loaderComponent());
 
 getRandomWordl().then((data) => {
+    randomWordAux = data;
     randomWord = data.split('');
     randomWord.forEach(() => accertedLetters.push("_"));
     cleanDisplay($input__Section);
@@ -39,6 +41,6 @@ $keyboard__Section.addEventListener("click", (e) => {
 
     if (oportunities === 0) {
         cleanDisplay($input__Section);
-        $input__Section.append(messageAlert("You've Lost..!!!"));
+        $input__Section.append(messageAlert(`You've 😜 lost.! was -> "${randomWordAux}".!`));
     }
 });
