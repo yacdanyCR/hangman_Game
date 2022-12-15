@@ -3,16 +3,19 @@ import { cleanDisplay, displayComponent } from "./components/DisplayComponent/Di
 import { hangedComponent } from "./components/HangedComponent/HangedComponent.js";
 import { keyBoardComponent } from "./components/KeyBoardComponent/KeyBoardComponent.js";
 import { loaderComponent } from "./components/LoaderComponent/LoaderComponent.js";
+import { navBarComponent } from "./components/NavBarComponent/NavBarComponent.js";
 import { messageAlert, optionsAccerted } from "./services/gameServices.js";
 
 let randomWord = [];
-let oportunities = 5;
+let oportunities = 6;
 const accertedLetters = [];
 
 const $input__Section = document.querySelector('.input__Section');
 const $keyboard__Section = document.querySelector('.keyboard__Section');
 const $showing__hanged = document.querySelector('.showing__hanged');
+const $header = document.querySelector('header');
 
+$header.append(navBarComponent());
 $keyboard__Section.append(keyBoardComponent());
 $input__Section.append(loaderComponent());
 
@@ -22,8 +25,6 @@ getRandomWordl().then((data) => {
     cleanDisplay($input__Section);
     $input__Section.append(displayComponent(accertedLetters));
     $showing__hanged.append(hangedComponent(oportunities));
-
-    console.log(randomWord)
 });
 
 $keyboard__Section.addEventListener("click", (e) => {
