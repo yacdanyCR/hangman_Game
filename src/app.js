@@ -3,9 +3,9 @@ import { cleanDisplay, displayComponent } from "./components/DisplayComponent/Di
 import { hangedComponent } from "./components/HangedComponent/HangedComponent.js";
 import { keyBoardComponent } from "./components/KeyBoardComponent/KeyBoardComponent.js";
 import { loaderComponent } from "./components/LoaderComponent/LoaderComponent.js";
-import { failedAlert, optionsAccerted } from "./services/gameServices.js";
+import { messageAlert, optionsAccerted } from "./services/gameServices.js";
 
-let randomWord = "";
+let randomWord = [];
 let oportunities = 5;
 const accertedLetters = [];
 
@@ -27,18 +27,17 @@ getRandomWordl().then((data) => {
 });
 
 $keyboard__Section.addEventListener("click", (e) => {
-    cleanDisplay($input__Section);
+
     if (!optionsAccerted(randomWord, accertedLetters, e.target.value, oportunities)) {
         oportunities--;
     };
-
+    cleanDisplay($input__Section);
     cleanDisplay($showing__hanged);
+    $showing__hanged.append(hangedComponent(oportunities));
+    $input__Section.append(displayComponent(accertedLetters));
 
-    if (oportunities > 0) {
-        $showing__hanged.append(hangedComponent(oportunities));
-        $input__Section.append(displayComponent(accertedLetters));
-
-    } else if (oportunities === 0) {
-        $input__Section.append(failedAlert());
+    if (oportunities === 0) {
+        cleanDisplay($input__Section);
+        $input__Section.append(messageAlert("You've Lost..!!!"));
     }
 });

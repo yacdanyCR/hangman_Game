@@ -8,13 +8,14 @@ const optionsAccerted = (randomWord, accertedLetters, letter) => {
     return false
 }
 
-const failedAlert = () => {
+const messageAlert = (message) => {
     const h1 = document.createElement('h1');
-    h1.innerText = "You've Lost.!";
+    h1.innerText = message;
     return h1;
 }
 
+
 export {
     optionsAccerted,
-    failedAlert
+    messageAlert
 }
