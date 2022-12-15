@@ -26,6 +26,12 @@ body {
     text-decoration: underline;
 }
 
+.showing__hanged {
+    width: 50px;
+    display: flex;
+    justify-content: center;
+}
+
 .keyboard__Section {
     display: flex;
     gap: 1rem;
@@ -38,6 +44,7 @@ body {
 .keyboard__Section>button {
     padding: 1rem;
     background-color: lightsteelblue;
+    font-weight: bolder;
 }
 
 .keyboard__Section>button:hover {
