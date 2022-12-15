@@ -22,6 +22,8 @@ getRandomWordl().then((data) => {
     cleanDisplay($input__Section);
     $input__Section.append(displayComponent(accertedLetters));
     $showing__hanged.append(hangedComponent(oportunities));
+
+    console.log(randomWord)
 });
 
 $keyboard__Section.addEventListener("click", (e) => {

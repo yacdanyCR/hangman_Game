@@ -10,7 +10,7 @@ const optionsAccerted = (randomWord, accertedLetters, letter) => {
 
 const failedAlert = () => {
     const h1 = document.createElement('h1');
-    h1.innerText = "You Lost.!";
+    h1.innerText = "You've Lost.!";
     return h1;
 }
 
